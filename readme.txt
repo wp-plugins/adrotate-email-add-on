@@ -32,9 +32,9 @@ No, You must need a [AdRotate](https://wordpress.org/plugins/adrotate/) plugin t
 
 == Screenshots ==
 
-1.`/assets/screenshot1.png`
-2.`/assets/screenshot2.png`
-3.`/assets/screenshot3.png`
+1. Screenshot 1
+2. Screenshot 2
+3. Screenshot 3
 
 == Changelog ==
 
