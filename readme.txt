@@ -10,13 +10,13 @@ License: GPLv2 or later
 This is add-on plugin of AdRotate. this plugin adds Email functionality to Adrotate Plugin
 
 == Description ==
-Adrotate Email add-on is a add-on plugin of AdRoatate plugin. This plugin adds functionality to send emails to advertisers with monthly ad reports.
+Adrotater Email add-on is a add-on plugin of AdRoatate plugin. This plugin adds functionality to send emails to advertisers with monthly ad reports.
 
-Adrotate Email add-on also provide functionality to edit email template and u can set as per your Requirement and send ad reports to your advertisers.
+Adrotater Email add-on also provide functionality to edit email template and u can set as per your Requirement and send ad reports to your advertisers.
 
 == Installation ==
 1. Install and Activate [AdRotate](https://wordpress.org/plugins/adrotate/) Plugin if it is not activated.
-2. Install Adrotate Email Add-on either via the WordPress.org plugin directory, or by uploading the files to your server
+2. Install Adrotater Email Add-on either via the WordPress.org plugin directory, or by uploading the files to your server
 3. Activate the plugin through the 'Plugins' menu in WordPress
 
 
