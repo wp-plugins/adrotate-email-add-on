@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name:       AdRotate Email Add-on
+ * Plugin Name:       AdRotater Email Add-on
  * Plugin URI:        http://xylusinfo.com/
  * Description:       This is a add-on plugin for Add Rotate, this Plugin has functionality to send Emails to Advertisers.
  * Version:           1.0.0
