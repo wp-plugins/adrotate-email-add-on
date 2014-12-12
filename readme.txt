@@ -10,7 +10,7 @@ License: GPLv2 or later
 Adrotater Email add-on is an add-on plugin for AdRotate plugin. This plugin adds Email functionality to Adrotate Plugin
 
 == Description ==
-Adrotater Email add-on is an add-on plugin for AdRotate plugin. This plugin adds functionality to send emails to advertisers with monthly ad reports.
+Adrotater Email add-on is an add-on plugin for AdRotate plugin. This plugin adds functionality to send emails to your advertisers with monthly ad reports.
 
 Adrotater Email add-on also provide functionality to edit email template and u can set as per your Requirement and send ad reports to your advertisers.
 
