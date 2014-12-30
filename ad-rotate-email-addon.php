@@ -73,7 +73,7 @@ if(is_plugin_active("adrotate/adrotate.php")){
  * If dependency requirements are not satisfied, self-deactivate
  */
 function dsp_self_deactivate() {
-    if(!is_plugin_active("adrotate/adrotate.php") || !is_plugin_active("adrotate-pro/adrotate.php")){
+    if(!is_plugin_active("adrotate/adrotate.php") && !is_plugin_active("adrotate-pro/adrotate.php")){
         require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
         deactivate_plugins( plugin_basename( __FILE__ ) );
         add_action( 'admin_notices','self_deactivate_notice');
