@@ -80,6 +80,31 @@ class Ad_Rotate_Email_Addon_Send_Email {
                         $subject = "Ad Report -" . $month . "/" . $year;
                     }
 
+                    if(get_option('dsp_from')){
+                        $from = get_option('dsp_from');
+
+                    }else {
+                        $from = "Adrotate Email Add-on";
+                    }
+                    if(get_option('dsp_from_email')){
+                        $from_email = get_option('dsp_from_email');
+
+                    }else {
+                        $from_email = $email;
+                    }
+                    if(get_option('dsp_cc')){
+                        $cc = get_option('dsp_cc');
+
+                    }else {
+                        $cc = $email;
+                    }
+                    if(get_option('dsp_reply')){
+                        $reply = get_option('dsp_reply');
+
+                    }else {
+                        $reply = $email;
+                    }
+
                     if(get_option('dsp_email_template')) {
                         $message = get_option('dsp_email_template');
                         $message = str_replace('{aduser}',$user[0]['display_name'],$message);
@@ -92,7 +117,10 @@ class Ad_Rotate_Email_Addon_Send_Email {
                     }
 
                     $headers = "MIME-Version: 1.0\n" .
-                        "From: Paso Roble Daily News <".$email.">\r\n\n" .
+                        "From: ".$from."<".$from_email.">\n" .
+                        "Cc: ".$cc."\n";
+
+                    $headers.= "Reply-To: ".$reply."\r\n\n".
                         "Content-Type: text/html; charset=\"" . get_option('blog_charset') . "\"\n";
 
                     if (wp_mail($useremail, $subject, $message, $headers)) {

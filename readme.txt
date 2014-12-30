@@ -3,8 +3,8 @@ Contributors: xylus
 Donate link: http://xylusinfo.com/
 Tags: ad,ads,email,adrotate,adrotate add-on,banner, commercial, admin, advertise, adrotator, 2014, plugin,rotator,advertiser, publisher, adsense,automatic email,statistics, stats, report, advert, adverts,javascript, jquery, tracking, clicks, impressions, rotate,add-on,addon,best,great,mail
 Requires at least: 3.8, PHP5.3
-Tested up to: 4.0.1
-Stable tag: 1.0.0
+Tested up to: 4.1
+Stable tag: 1.0.1
 License: GPLv2 or later
 
 Adrotater Email add-on is an add-on plugin for AdRotate plugin. This plugin adds Email functionality to Adrotate Plugin
@@ -40,5 +40,12 @@ No, You must need a [AdRotate](https://wordpress.org/plugins/adrotate/) plugin t
 
 = 1.0.0 =
 * initial release
+
+= 1.0.1 =
+* Added: From Name option.
+* Added: From Email option.
+* Added: Cc option.
+* Added: Reply To option.
+
 
 

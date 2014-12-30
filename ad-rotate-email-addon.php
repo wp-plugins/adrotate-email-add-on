@@ -4,7 +4,7 @@
  * Plugin Name:       AdRotater Email Add-on
  * Plugin URI:        http://xylusinfo.com/
  * Description:       This is a add-on plugin for Add Rotate, this Plugin has functionality to send Emails to Advertisers.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Xylus Consultancy Services
  * Author URI:        http://xylusinfo.com/
  * License:           GPLv2 or later
@@ -73,7 +73,7 @@ if(is_plugin_active("adrotate/adrotate.php")){
  * If dependency requirements are not satisfied, self-deactivate
  */
 function dsp_self_deactivate() {
-    if(!is_plugin_active("adrotate/adrotate.php")){
+    if(!is_plugin_active("adrotate/adrotate.php") || !is_plugin_active("adrotate-pro/adrotate.php")){
         require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
         deactivate_plugins( plugin_basename( __FILE__ ) );
         add_action( 'admin_notices','self_deactivate_notice');

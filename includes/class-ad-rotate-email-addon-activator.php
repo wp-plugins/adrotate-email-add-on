@@ -43,9 +43,14 @@ class Ad_Rotate_Email_Addon_Activator{
          $mail .='<p>Your Company_name.</p>';
 
          $subject ='Company_name Ad Report';
+         $email   = get_option( 'admin_email' );
 
          update_option( 'dsp_email_template', $mail);
          update_option( 'dsp_subject', $subject);
+         update_option( 'dsp_from', "Your Company Name");
+         update_option( 'dsp_from_email', $email);
+         update_option( 'dsp_cc', $email);
+         update_option( 'dsp_reply', $email);
 
 	 }
 }

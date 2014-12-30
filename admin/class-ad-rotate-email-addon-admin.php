@@ -130,6 +130,10 @@ class Ad_Rotate_Email_Addon_Admin {
 
     public function dsp_enable_option(){
         register_setting('dsp_option_group','dsp_subject');
+        register_setting('dsp_option_group','dsp_from');
+        register_setting('dsp_option_group','dsp_from_email');
+        register_setting('dsp_option_group','dsp_cc');
+        register_setting('dsp_option_group','dsp_reply');
         register_setting('dsp_option_group','dsp_email_template');
     }
 }

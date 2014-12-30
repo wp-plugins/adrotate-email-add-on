@@ -227,6 +227,26 @@ if (isset( $_POST['adrotate_email_nonce'] )&& wp_verify_nonce( $_POST['adrotate_
 	                </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                    <th width="10%">From Name : </th>
+                    <td><input type="text" name="dsp_from" placeholder="From Name.." class="widefat" <?php if(get_option('dsp_from')){ echo 'value="'.get_option('dsp_from').'"'; }?>> </td>
+
+                    </tr>
+                    <tr>
+                        <th width="10%">From Email : </th>
+                        <td><input type="text" name="dsp_from_email" placeholder="From Email.." class="widefat" <?php if(get_option('dsp_from_email')){ echo 'value="'.get_option('dsp_from_email').'"'; }?>> </td>
+
+                    </tr>
+                    <tr>
+                        <th width="10%">Cc : </th>
+                        <td><input type="text" name="dsp_cc" placeholder="Enter Cc Email Address" class="widefat" <?php if(get_option('dsp_cc')){ echo 'value="'.get_option('dsp_cc').'"'; }?>> </td>
+
+                    </tr>
+                    <tr>
+                        <th width="10%">Reply To : </th>
+                        <td><input type="text" name="dsp_reply" placeholder="Enter Reply Email Address" class="widefat" <?php if(get_option('dsp_reply')){ echo 'value="'.get_option('dsp_reply').'"'; }?>> </td>
+
+                    </tr>
 	                <tr>
 	                    <th width="10%">Subject : </th>
 	                    <td><input type="text" name="dsp_subject" placeholder="Enter Email Subject" class="widefat" <?php if(get_option('dsp_subject')){ echo 'value="'.get_option('dsp_subject').'"'; }?>> </td>
