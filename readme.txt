@@ -48,4 +48,6 @@ No, You must need a [AdRotate](https://wordpress.org/plugins/adrotate/) plugin t
 * Added: Reply To option.
 
 
+= 1.0.2 =
+* Added: Add Advertiser Functionality
 
