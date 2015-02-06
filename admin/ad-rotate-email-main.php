@@ -4,6 +4,30 @@
  * admin side of the site.
  */
 
+if (isset( $_POST['adrotate_email_advertiser_nonce'] )&& wp_verify_nonce( $_POST['adrotate_email_advertiser_nonce'], 'adrotate_email_advertiser' )){
+    if(isset($_POST['dsp_advertiser']) && $_POST['dsp_advertiser'] != ''){
+        global $wpdb;
+        $advertiser_id = $_POST['dsp_advertiser'];
+        if($advertiser_id == '-1'){
+            ?>
+            <script> alert("Please Select Advertiser !!!");</script>
+        <?php
+
+        }else{
+            $ad_id = $_POST['dsp_ad_id'];
+            $edit_id = $wpdb->get_var("SELECT `meta_id` FROM `".$wpdb->prefix."adsmeta` WHERE `ad` = $ad_id AND `meta_key` = 'advertiser';");
+
+            if(isset($edit_id) && $edit_id != ''){
+                $wpdb->update($wpdb->prefix."adsmeta", array('meta_value' => $advertiser_id),array( 'meta_id' => $edit_id ));
+
+            }else{
+                $wpdb->insert($wpdb->prefix."adsmeta", array('ad' => $ad_id, 'meta_key' => 'advertiser', 'meta_value' => $advertiser_id));
+                //$edit_id = $wpdb->insert_id;
+            }
+        }
+    }
+}
+
 if (isset($_GET['message']) && $_GET['message'] == 'error'){
     ?>
     <div class="error">
@@ -164,23 +188,47 @@ if (isset( $_POST['adrotate_email_nonce'] )&& wp_verify_nonce( $_POST['adrotate_
 	            }
 
 
-	        ?>
+	        ?></form>
 	                <tr>
 
 		                <th class="check-column"><input type="checkbox" name="bannercheck[]" value="<?php echo $id; ?>" /></th>
                         <td><?php echo $id; ?></td>
 		                <td><?php echo date_i18n("F d, Y", $banner['firstactive']);?></td>
 		                <td><span style="color: <?php echo adrotate_prepare_color($banner['lastactive']);?>;"><?php echo date_i18n("F d, Y", $banner['lastactive']);?></span></td>
-		                <td><?php if($tracker=='Y'){ echo $display_name;}?></td>
+                        <form name="advertiser_form" method="post" action="admin.php?page=adrotate_email">
+                            <?php wp_nonce_field('adrotate_email_advertiser','adrotate_email_advertiser_nonce'); ?>
+                            <td>
+
+                                <?php
+                                global $wpdb;
+                                $select_id = (int)$wpdb->get_var("SELECT `meta_value` FROM `".$wpdb->prefix."adsmeta` WHERE `ad` = $id AND `meta_key` = 'advertiser';");
+                                $args = array(
+                                    'name'                    => 'dsp_advertiser',
+                                    'show_option_none'        => 'Select Advertiser'
+                                );
+                                if(isset($select_id) && $select_id != ''){
+                                    $args['selected'] = $select_id;
+                                    $button_text = __('Change', 'add-rotate-email-addon');
+                                }else{
+                                    $button_text = __('Add', 'add-rotate-email-addon');
+                                }
+                                ?>
+                                <input type="hidden" name="dsp_ad_id" value="<?php echo $id; ?>">
+                                <?php wp_dropdown_users( $args ); ?>
+                                <input type="submit" class="button-primary" value="<?php echo $button_text; ?>" />
+
+
+                            </td>
+                        </form>
 	                    <td>
-		                    <strong><a class="row-title" href="<?php echo admin_url('/admin.php?page=adrotate-ads&view=edit&ad='.$banner['id']);?>" title="<?php _e('Edit', 'adrotate'); ?>"><?php echo $ad_title; ?></a></strong> - <a href="<?php echo admin_url('/admin.php?page=adrotate-ads&view=report&ad='.$banner['id']);?>" title="<?php _e('Stats', 'adrotate'); ?>"><?php _e('Stats', 'adrotate'); ?></a> - <a href="admin.php?page=adrotate-schedules&ad=<?php echo $banner['id']; ?>"><?php _e('Schedules', 'adrotate'); ?></a><span style="color:#999;"><?php if(strlen($grouplist) > 0) echo '<br /><span style="font-weight:bold;">Groups:</span> '.$grouplist; ?><?php if(strlen($banner['advertiser']) > 0 AND $adrotate_config['enable_advertisers'] == 'Y') echo '<br /><span style="font-weight:bold;">Advertiser:</span> '.$banner['advertiser']; ?></span>
+		                    <strong><a class="row-title" href="<?php echo admin_url('/admin.php?page=adrotate-ads&view=edit&ad='.$banner['id']);?>" title="<?php _e('Edit', 'adrotate'); ?>"><?php echo $ad_title; ?></a></strong> - <a href="<?php echo admin_url('/admin.php?page=adrotate-ads&view=report&ad='.$banner['id']);?>" title="<?php _e('Stats', 'add-rotate-email-addon'); ?>"><?php _e('Stats', 'add-rotate-email-addon'); ?></a> - <a href="admin.php?page=adrotate-schedules&ad=<?php echo $banner['id']; ?>"><?php _e('Schedules', 'add-rotate-email-addon'); ?></a><span style="color:#999;"><?php if(strlen($grouplist) > 0) echo '<br /><span style="font-weight:bold;">Groups:</span> '.$grouplist; ?><?php if(strlen($banner['advertiser']) > 0 AND $adrotate_config['enable_advertisers'] == 'Y') echo '<br /><span style="font-weight:bold;">Advertiser:</span> '.$banner['advertiser']; ?></span>
 	                    </td>
 	                    <td><?php if($tracker=='Y'){ echo $stats['impressions'];}?></td>
 		                <td><?php if($tracker=='Y'){ echo $stats_today['impressions'];}?></td>
 	                    <td><?php if($tracker=='Y'){ echo $stats['clicks'];}?></td>
 		                <td><?php if($tracker=='Y'){ echo $stats_today['clicks'];}?></td>
 		                <td><?php if($tracker=='Y'){ echo $stats_today['clicks'];}?></td>
-                        </form>
+
                         <form name="inner_emails" id="post" method="post" action="admin.php?page=adrotate_email">
                             <?php wp_nonce_field('adrotate_email_ad_active_inner','adrotate_email_nonce_inner'); ?>
                             <input type="hidden" name="ad_id" value="<?php echo $id; ?>" >
