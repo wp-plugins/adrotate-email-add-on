@@ -1,5 +1,5 @@
 === Adrotater Email Add-on ===
-Contributors: xylus
+Contributors: xylus, karangadhavi
 Donate link: http://xylusinfo.com/
 Tags: ad,ads,email,adrotate,adrotate add-on,banner, commercial, admin, advertise, adrotator, 2014, plugin,rotator,advertiser, publisher, adsense,automatic email,statistics, stats, report, advert, adverts,javascript, jquery, tracking, clicks, impressions, rotate,add-on,addon,best,great,mail
 Requires at least: 3.8, PHP5.3
