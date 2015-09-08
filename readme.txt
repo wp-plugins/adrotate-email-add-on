@@ -51,3 +51,6 @@ No, You must need a [AdRotate](https://wordpress.org/plugins/adrotate/) plugin t
 = 1.0.2 =
 * Added: Add Advertiser Functionality
 
+= 1.0.3 =
+* Fix: Fixed Some Bugs Generated due to adrotate plugin update.
+
